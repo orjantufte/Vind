@@ -1,0 +1,126 @@
+﻿
+<div class="container">
+    <div class="page-header">
+        <h1>Vindstasjoner <small>Målerstasjoner fra vindsiden.no</small></h1>
+    </div>
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Marker stasjoner! </strong>Velg stasjoner som dine for å enklere følge med på dem. Klikk for mer informasjon om nødvendig. Markering blir lagret lokalt så siden vil huske de stedene du benytter
+    </div>
+
+    <div class="form-group">
+        <h3>Mine stasjoner</h3>
+        <table class="table table-responsive table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Navn</th>
+                    <th>Retning</th>
+                    <th>Snitt</th>
+                    <th>Min</th>
+                    <th>Max</th>
+
+                    <th>Når</th>
+                    <th><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></th> <!--glyphicon glyphicon-heart-empty-->
+                </tr>
+            </thead>
+            <tbody>
+                <!--<tr ng-repeat="i in stations | filter:{isMySpot:true}" ng-class="{warning: (-60>(i.Now.Time | amDifference : null : 'minutes')), danger: (-120>(i.Now.Time | amDifference : null : 'minutes'))}">-->
+                <tr ng-repeat="i in stations | filter:{isMySpot:true}">
+                    <td>
+                        <a ng-href="#/stasjon/{{i.StationID}}">{{i.Name | limitTo: 10}}{{(i.Name.length>10?"..":"")}}</a>
+                    </td>
+                    <td>
+                        <span ng-if="(!!i.Prevprev.DirectionAvg)">
+                            <img height="10" class="fade2" width="10" src="../img/arrow_up.png" rotate degrees="i.Prevprev.DirectionAvg">
+                        </span>
+
+                        <span ng-if="(!!i.Prev.DirectionAvg)">
+                            <img height="14" class="fade1" width="14" src="../img/arrow_up.png" rotate degrees="i.Prev.DirectionAvg">
+                        </span>
+
+                        <span ng-if="(!!i.Now.DirectionAvg)">
+                            <img height="18" width="18" src="../img/arrow_up.png" rotate degrees="i.Now.DirectionAvg">
+                        </span>
+
+                    </td>
+                    <td><strong>{{i.Now.WindAvg.toFixed(1);}}</strong></td>
+                    <td>{{i.Now.WindMin.toFixed(1);}}</td>
+                    <td>{{i.Now.WindMax.toFixed(1);}}</td>
+
+                    <td> <span class="label label-default" ng-class="{'label-warning': (-60>(i.Now.Time | amDifference : null : 'minutes')), 'label-danger': (-120>(i.Now.Time | amDifference : null : 'minutes'))}">{{i.Now.Time | amTimeAgo}}</span></td>
+                    <td><input type="checkbox" class="glyphicon glyphicon-heart-empty" ng-model="i.isMySpot" ng-change="changeIsMySpot(i)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <h3>Alle stasjoner</h3>
+        <div class="row">
+            <!--<label for="Sort" class="col-xs-2 col-md-1 control-label">Sort by</label>
+            <div class="col-xs-4 col-md-3 col-lg-2">
+                <select ng-init="orderProp = 'Name'" ng-model="orderProp" id="Sort" class="form-control">
+                    <option selected value="Name">Name acending</option>
+                    <option value="-Name">Name decending</option>
+                    <option value="-Now.WindAvg">Styrke</option>
+                    <option value="StationID">StationID</option>
+                    <option value="isMySpot">Mine stasjoner</option>
+                </select>
+            </div>-->
+            <label for="Search" class="col-xs-2 col-md-1 control-label">Søk</label>
+            <div class="col-xs-4 col-md-3 col-lg-2">
+                <input type="search" class="form-control" id="Search" placeholder="Search" ng-model="query">
+            </div>
+        </div>
+    </div>
+    <!--<table class="table table-responsive table-striped table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Retning</th>
+                <th>Snitt</th>
+                <th>Min</th>
+                <th>Max</th>
+
+                <th>Når</th>
+                <th><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="i in stations | filter:query | orderBy:orderProp:false">
+                <td>
+                <a ng-href="#/stasjon/{{i.StationID}}">{{i.Name | limitTo: 10}}{{(i.Name.length>10?"..":"")}}</a>
+                </td>
+                <td>
+                    <span ng-if="(!!i.Prevprev.DirectionAvg)">
+                        <img height="10" class="fade2" width="10" src="../img/arrow_up.png" rotate degrees="i.Prevprev.DirectionAvg">
+                    </span>
+
+                    <span ng-if="(!!i.Prev.DirectionAvg)">
+                        <img height="14" class="fade1" width="14" src="../img/arrow_up.png" rotate degrees="i.Prev.DirectionAvg">
+                    </span>
+
+                    <span ng-if="(!!i.Now.DirectionAvg)">
+                        <img height="18" width="18" src="../img/arrow_up.png" rotate degrees="i.Now.DirectionAvg">
+                    </span>
+
+                </td>
+                <td><strong>{{i.Now.WindAvg.toFixed(1);}}</strong></td>
+                <td>{{i.Now.WindMin.toFixed(1);}}</td>
+                <td>{{i.Now.WindMax.toFixed(1);}}</td>
+
+                <td> <span class="label label-default" ng-class="{'label-warning': (-60>(i.Now.Time | amDifference : null : 'minutes')), 'label-danger': (-120>(i.Now.Time | amDifference : null : 'minutes'))}">{{i.Now.Time | amTimeAgo}}</span></td>
+                <td><input type="checkbox" class="glyphicon glyphicon-heart-empty" ng-model="i.isMySpot" ng-change="changeIsMySpot(i)"></td>
+            </tr>
+        </tbody>
+    </table>-->
+
+
+    <ul class="list-group">
+        <li class="list-group-item  col-md-2 col-xs-4 col-sm-3" ng-repeat="i in stations | filter:query | orderBy:orderProp:false">
+            <input type="checkbox" class="glyphicon glyphicon-heart-empty" ng-model="i.isMySpot" ng-change="changeIsMySpot(i)">
+            <a ng-href="#/stasjon/{{i.StationID}}">{{i.Name | limitTo: 10}}{{(i.Name.length>10?"..":"")}}</a>
+        </li>
+    </ul>
+</div>
+
+

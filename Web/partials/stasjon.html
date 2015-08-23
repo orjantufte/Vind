@@ -1,0 +1,59 @@
+﻿<div class="container">
+
+    <div class="page-header">
+        <h1>{{station.Name}} <small>{{station.Region}} - {{station.City}}</small></h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>Historikk</h3>
+            <highchart id="chart1" config="chartConfig"></highchart>
+            <h3>Marinogram</h3>
+            <img class="img-responsive" ng-src="{{station.MarinogramImage}}" />
+            <h3>Meteogram</h3> 
+            <img class="img-responsive" ng-src="{{station.MeteogramImage}}" />
+
+        </div>
+        <div class="col-sm-4">
+
+            <h3>Stasjonsdata</h3>
+            <dl>
+                <dt><strong>Snitt</strong>/Min/Max</dt>
+                <dd><strong>{{measurements[measurements.length-1].WindAvg.toFixed(2); }}</strong>/{{measurements[measurements.length-1].WindMin.toFixed(2); }}/{{measurements[measurements.length-1].WindMax.toFixed(2); }}</dd>
+
+                <dt>Retning</dt>
+                <dd>
+                    <div ng-if="(!!measurements[measurements.length-1].DirectionAvg)">
+                        <img height="16" width="16" src="../img/arrow_up.png" alt="direction is {{measurements[measurements.length-1].DirectionAvg}}" rotate degrees="measurements[measurements.length-1].DirectionAvg">
+                        {{measurements[measurements.length-1].DirectionAvg.toFixed(0); }}
+                    </div>
+                </dd>
+                <dt>Retning Standardavik</dt>
+                <dd>{{measurements[measurements.length-1].DirectionStDev.toFixed(1); }}</dd>
+                <dt>Vind Standardavik</dt>
+                <dd>{{measurements[measurements.length-1].WindStDev}}</dd>
+                <dt>Temperatur</dt>
+                <dd>{{measurements[measurements.length-1].Temperature1.toFixed(1); }}</dd>
+                <dt>Avlest</dt>
+                <dd><span class="label label-default" ng-class="{'label-warning': (-60>(measurements[measurements.length-1].Time| amDifference : null : 'minutes')), 'label-danger': (-120>(measurements[measurements.length-1].Time | amDifference : null : 'minutes'))}">{{measurements[measurements.length-1].Time | amTimeAgo}}</span> ({{measurements[measurements.length-1].Time}})</dd>
+                <dt>Latitude</dt>
+                <dd>{{station.Latitude}}</dd>
+                <dt>Longitude</dt>
+                <dd>{{station.Longitude}}</dd>
+                <dt>Altitude</dt>
+                <dd>{{station.Altitude.toFixed(2);}}</dd>
+                <dt>Om stasjonen</dt>
+                <dd>{{station.Text}}</dd>
+            </dl>
+            <h3>Plassering</h3>
+            <ui-gmap-google-map center='map1.center' zoom='map1.zoom1'>
+                <ui-gmap-marker coords="map1.location" idkey="2">
+                </ui-gmap-marker>
+            </ui-gmap-google-map>
+
+            <h3>Webcam</h3>
+            <img class="img-responsive" ng-src="{{station.WebcamImage}}" />
+
+        </div>
+    </div>
+</div>
+

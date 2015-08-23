@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="page-header">
+        <h1>Kart <small>Oversikt over alle stasjoner</small></h1>
+    </div>
+
+        <ui-gmap-google-map center='map1.center' zoom='map1.zoom1'>
+            <ui-gmap-markers models="stations" coords="'self'" options="'options'" islabel='true' idkey="'StationID'"
+                             icon='{url:    "../img/mapmarkerinv.png" }'>
+                <!--<ui-gmap-windows show="show">
+                    <div ng-non-bindable>
+                        <a ng-href="#/stasjon/{{StationID}}" >
+                            <h3>{{Name}} <small>{{Region}} - {{City}}</small></h3>
+                        </a>
+                        <dl>
+                            <dt><strong>Snitt</strong>/Min/Max</dt>
+                            <dd><strong>{{Now.WindAvg.toFixed(2); }}</strong>/{{Now.WindMin.toFixed(2); }}/{{Now.WindMax.toFixed(2); }}</dd>
+                        </dl>
+                    </div>
+                </ui-gmap-windows>-->
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+
+</div>
