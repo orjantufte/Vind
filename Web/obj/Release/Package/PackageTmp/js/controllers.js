@@ -106,6 +106,11 @@ angular.module('myApp.controllers', [])
             $scope.map1.location = { latitude: data.Latitude, longitude: data.Longitude };
         });
 
+    window.fbAsyncInit();
+    $scope.getLocation = function () { //For fb comments
+        return document.location.href;
+    }
+
     $scope.map1 = { center: { latitude: 45, longitude: -73 }, location: { latitude: 45, longitude: -73 }, zoom1: 9 };
 
     $scope.measurements = $http.get('https://jsonp.afeld.me/?url=http://vindsiden.no/api/measurements/' + $scope.Id + "?date=" + new Date().toJSON().slice(0, 10))// 2014-09-13)

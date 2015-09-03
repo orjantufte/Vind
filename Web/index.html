@@ -17,7 +17,6 @@
     <meta name="revisit-after" content="1 days">
     <meta name="distribution" content="web">
 
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--FACEBOOK-->
     <meta property="og:title" content="Vind på din spot">
@@ -62,6 +61,8 @@
                     <a class="btn btn-primary navbar-btn" href="#/stasjoner">Stasjoner</a>
                     <a class="btn btn-primary navbar-btn" href="#/kart">Kart</a>
                     <a class="btn btn-info navbar-btn" href="#/om">Om</a>
+                    
+                    <div class="fb-like" data-href="http://vind.azurewebsites.net/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
                 </div>
             </div>
         </div>
@@ -75,7 +76,30 @@
     <hr>
     <div class="container-fluid">
         Laget av Ørjan Tufte. Data er hentet fra <a href="http://www.vindsiden.no">vindsiden.no</a>
+        Om du vil sponse denne siden så doner gjerne med vips eller ta kontakt.<a href="mailto:#">orjan_tufte@hotmail.com</a><br>
+<a href="tel:+4740552959">40552959</a>
+
+        <div class="fb-like" data-href="http://vind.azurewebsites.net/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
     </div>
+    <!--Facebook like funksjonalitet-->
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '943235172406131',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/lodash/lodash.min.js"></script>
