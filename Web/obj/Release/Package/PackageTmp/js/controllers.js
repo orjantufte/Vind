@@ -128,6 +128,7 @@ angular.module('myApp.controllers', [])
             $scope.chartConfig.series.push({
                 name: 'Min-max',
                 data: ranges,
+                fillOpacity: 0.2,
                 type: 'arearange'
             });
 
