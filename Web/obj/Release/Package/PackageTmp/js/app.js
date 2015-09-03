@@ -39,6 +39,10 @@ constant('amTimeAgoConfig', {
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/om', { templateUrl: 'partials/om.html'});
     $routeProvider.when('/stasjoner', { templateUrl: 'partials/stasjoner.html', controller: 'StasjonerCtrl' });
+    $routeProvider.when('/stasjoner2', { templateUrl: 'partials/stasjoner2.html', controller: 'StasjonerCtrl' });
+
+    $routeProvider.when('/mine', { templateUrl: 'partials/mine.html', controller: 'StasjonerCtrl' });
+
     $routeProvider.when('/kart', { templateUrl: 'partials/kart.html', controller: 'StasjonerCtrl' });
     $routeProvider.when('/stasjon/:Id', { templateUrl: 'partials/stasjon.html', controller: 'StasjonCtrl' });
   $routeProvider.otherwise({ redirectTo: '/stasjoner' });

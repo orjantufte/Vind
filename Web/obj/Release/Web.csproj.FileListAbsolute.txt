@@ -4,3 +4,9 @@ C:\Users\orjan_000\documents\visual studio 2013\Projects\Kitespotter\Web\bin\Web
 C:\Users\orjan_000\documents\visual studio 2013\Projects\Kitespotter\Web\obj\Release\Web.csprojResolveAssemblyReference.cache
 C:\Users\orjan_000\documents\visual studio 2013\Projects\Kitespotter\Web\obj\Release\Web.dll
 C:\Users\orjan_000\documents\visual studio 2013\Projects\Kitespotter\Web\obj\Release\Web.pdb
+C:\w\Vind\Web\bin\Web.dll.config
+C:\w\Vind\Web\bin\Web.dll
+C:\w\Vind\Web\bin\Web.pdb
+C:\w\Vind\Web\obj\Release\Web.csprojResolveAssemblyReference.cache
+C:\w\Vind\Web\obj\Release\Web.dll
+C:\w\Vind\Web\obj\Release\Web.pdb

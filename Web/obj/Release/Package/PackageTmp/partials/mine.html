@@ -1,0 +1,59 @@
+﻿
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>Vindstasjoner <small>Målerstasjoner fra vindsiden.no</small></h1>
+    </div>
+
+    <div class="form-group">
+        <h3>Mine stasjoner</h3>
+        <table class="table table-responsive table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Navn</th>
+                    <th>Målinger</th>
+                    <th>Min</th>
+                    <th>Max</th>
+
+                    <th>Når</th>
+                    <th><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></th> <!--glyphicon glyphicon-heart-empty-->
+                </tr>
+            </thead>
+            <tbody>
+                <!--<tr ng-repeat="i in stations | filter:{isMySpot:true}" ng-class="{warning: (-60>(i.Now.Time | amDifference : null : 'minutes')), danger: (-120>(i.Now.Time | amDifference : null : 'minutes'))}">-->
+                <tr ng-repeat="i in stations | filter:{isMySpot:true} | orderBy:'Name':false">
+                    <td>
+                        <a ng-href="#/stasjon/{{i.StationID}}">{{i.Name | limitTo: 10}}{{(i.Name.length>10?"..":"")}}</a>
+                    </td>
+                    <td>
+                        <span ng-if="(!!i.measurements[i.measurements.length-3].DirectionAvg)">
+                            {{i.measurements[i.measurements.length-3].WindAvg.toFixed(1);}}
+                            <img height="12" class="fade2" width="12" src="../img/arrow_up.png" rotate degrees="i.measurements[i.measurements.length-3].DirectionAvg">
+                        </span>
+
+                        <span ng-if="(!!i.measurements[i.measurements.length-2].DirectionAvg)">
+                            {{i.measurements[i.measurements.length-2].WindAvg.toFixed(1);}}
+                            <img height="14" class="fade1" width="14" src="../img/arrow_up.png" rotate degrees="i.measurements[i.measurements.length-2].DirectionAvg">
+                        </span>
+                        <span ng-if="(!!i.measurements[i.measurements.length-1].DirectionAvg)">
+                            <strong>
+                                {{i.measurements[i.measurements.length-1].WindAvg.toFixed(1);}}
+                            </strong>
+                            <img height="18" width="18" src="../img/arrow_up.png" rotate degrees="i.measurements[i.measurements.length-1].DirectionAvg">
+                        </span>
+                    </td>
+                    <!--<td><strong>{{i.Now.WindAvg.toFixed(1);}}</strong></td>-->
+                    <td>{{i.Now.WindMin.toFixed(1);}}</td>
+                    <td>{{i.Now.WindMax.toFixed(1);}}</td>
+
+                    <td> <span class="label label-default" ng-class="{'label-warning': (-60>(i.Now.Time | amDifference : null : 'minutes')), 'label-danger': (-120>(i.Now.Time | amDifference : null : 'minutes'))}">{{i.Now.Time | amTimeAgo}}</span></td>
+                    <td ng-controller="StasjonCtrl">
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,6 +58,47 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bower_components\highcharts\.gitignore" />
+    <Content Include="bower_components\highcharts\adapters\standalone-framework.js" />
+    <Content Include="bower_components\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="bower_components\highcharts\highcharts-3d.js" />
+    <Content Include="bower_components\highcharts\highcharts-3d.src.js" />
+    <Content Include="bower_components\highcharts\highcharts-more.js" />
+    <Content Include="bower_components\highcharts\highcharts-more.src.js" />
+    <Content Include="bower_components\highcharts\highcharts.js" />
+    <Content Include="bower_components\highcharts\highcharts.src.js" />
+    <Content Include="bower_components\highcharts\modules\boost.js" />
+    <Content Include="bower_components\highcharts\modules\boost.src.js" />
+    <Content Include="bower_components\highcharts\modules\broken-axis.js" />
+    <Content Include="bower_components\highcharts\modules\broken-axis.src.js" />
+    <Content Include="bower_components\highcharts\modules\canvas-tools.js" />
+    <Content Include="bower_components\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="bower_components\highcharts\modules\data.js" />
+    <Content Include="bower_components\highcharts\modules\data.src.js" />
+    <Content Include="bower_components\highcharts\modules\drilldown.js" />
+    <Content Include="bower_components\highcharts\modules\drilldown.src.js" />
+    <Content Include="bower_components\highcharts\modules\exporting.js" />
+    <Content Include="bower_components\highcharts\modules\exporting.src.js" />
+    <Content Include="bower_components\highcharts\modules\funnel.js" />
+    <Content Include="bower_components\highcharts\modules\funnel.src.js" />
+    <Content Include="bower_components\highcharts\modules\heatmap.js" />
+    <Content Include="bower_components\highcharts\modules\heatmap.src.js" />
+    <Content Include="bower_components\highcharts\modules\no-data-to-display.js" />
+    <Content Include="bower_components\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="bower_components\highcharts\modules\offline-exporting.js" />
+    <Content Include="bower_components\highcharts\modules\offline-exporting.src.js" />
+    <Content Include="bower_components\highcharts\modules\solid-gauge.js" />
+    <Content Include="bower_components\highcharts\modules\solid-gauge.src.js" />
+    <Content Include="bower_components\highcharts\modules\treemap.js" />
+    <Content Include="bower_components\highcharts\modules\treemap.src.js" />
+    <Content Include="bower_components\highcharts\themes\dark-blue.js" />
+    <Content Include="bower_components\highcharts\themes\dark-green.js" />
+    <Content Include="bower_components\highcharts\themes\dark-unica.js" />
+    <Content Include="bower_components\highcharts\themes\gray.js" />
+    <Content Include="bower_components\highcharts\themes\grid-light.js" />
+    <Content Include="bower_components\highcharts\themes\grid.js" />
+    <Content Include="bower_components\highcharts\themes\sand-signika.js" />
+    <Content Include="bower_components\highcharts\themes\skies.js" />
     <Content Include="favicon.ico" />
     <Content Include="bower_components\angular-animate\angular-animate.js" />
     <Content Include="bower_components\angular-animate\angular-animate.min.js" />
@@ -516,9 +558,12 @@
     <Content Include="js\controllers.js" />
     <Content Include="js\directives.js" />
     <Content Include="js\filters.js" />
+    <Content Include="js\JavaScript.js" />
     <Content Include="js\services.js" />
     <Content Include="partials\om.html" />
     <Content Include="partials\kart.html" />
+    <Content Include="partials\mine.html" />
+    <Content Include="partials\stasjoner2.html" />
     <Content Include="partials\stasjoner.html" />
     <Content Include="partials\stasjon.html" />
     <Content Include="test\e2e\scenarios.js" />
@@ -745,6 +790,11 @@
     <Content Include="bower_components\moment\CHANGELOG.md" />
     <Content Include="bower_components\moment\LICENSE" />
     <Content Include="bower_components\moment\README.md" />
+    <Content Include="bower_components\highcharts\.bower.json" />
+    <Content Include="bower_components\highcharts\bower.json" />
+    <Content Include="bower_components\highcharts\package.json" />
+    <Content Include="bower_components\highcharts\README.md" />
+    <None Include="Properties\PublishProfiles\vind %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\vind.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -753,7 +803,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
