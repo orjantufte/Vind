@@ -10,3 +10,9 @@ C:\w\Vind\Web\bin\Web.pdb
 C:\w\Vind\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 C:\w\Vind\Web\obj\Debug\Web.dll
 C:\w\Vind\Web\obj\Debug\Web.pdb
+C:\git\Vind\Web\bin\Web.dll.config
+C:\git\Vind\Web\bin\Web.dll
+C:\git\Vind\Web\bin\Web.pdb
+C:\git\Vind\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\git\Vind\Web\obj\Debug\Web.dll
+C:\git\Vind\Web\obj\Debug\Web.pdb

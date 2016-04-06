@@ -23,7 +23,7 @@ angular.module('myApp.controllers', [])
       };
 
       $scope.stations = []
-      $scope.stationsProm = $http.get('https://jsonp.afeld.me/?url=http://vindsiden.no/api/stations/')
+      $scope.stationsProm = $http.get('https://vindapi.azure-api.net/vindsiden/api/stations/')
           .success(function (data) {
               $scope.stations = _.map(data, function (a, b, c) {
                   //For Kart
@@ -54,7 +54,7 @@ angular.module('myApp.controllers', [])
 
       var getMeasurements = function (a, b, c) {
           if (!a.StationID) return;
-          var http = $http.get('https://jsonp.afeld.me/?url=http://vindsiden.no/api/measurements/' + a.StationID + "?date=" + new Date().toJSON().slice(0, 10))// 2014-09-13)
+          var http = $http.get('https://vindapi.azure-api.net/vindsiden/api/measurements/' + a.StationID + "?date=" + new Date().toJSON().slice(0, 10))// 2014-09-13)
           http.success(function (a, b, c, d, e) {
               if (!a || a.length < 1) return;
               var last = a[a.length - 1];
@@ -99,7 +99,7 @@ angular.module('myApp.controllers', [])
 .controller('StasjonCtrl', ['$scope', '$http', '$routeParams', '$timeout', function ($scope, $http, $routeParams, $timeout) {
     $scope.Id = $routeParams.Id;
 
-    $scope.station = $http.get('https://jsonp.afeld.me/?url=http://vindsiden.no/api/stations/' + $scope.Id)
+    $scope.station = $http.get('https://vindapi.azure-api.net/vindsiden/api/stations/' + $scope.Id)
         .success(function (data) {
             $scope.station = data;
             $scope.map1.center = { latitude: data.Latitude, longitude: data.Longitude };
@@ -113,7 +113,7 @@ angular.module('myApp.controllers', [])
 
     $scope.map1 = { center: { latitude: 45, longitude: -73 }, location: { latitude: 45, longitude: -73 }, zoom1: 9 };
 
-    $scope.measurements = $http.get('https://jsonp.afeld.me/?url=http://vindsiden.no/api/measurements/' + $scope.Id + "?date=" + new Date().toJSON().slice(0, 10))// 2014-09-13)
+    $scope.measurements = $http.get('https://vindapi.azure-api.net/vindsiden/api/measurements/' + $scope.Id + "?date=" + new Date().toJSON().slice(0, 10))// 2014-09-13)
         .success(function (data) {
             $scope.measurements = data;
 
